@@ -2,6 +2,7 @@ package pp;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 /**
- *
  * @author jose
  */
 public class Controller implements Initializable
@@ -25,17 +25,11 @@ public class Controller implements Initializable
     void metodoCifrar(ActionEvent event)
     {
         if (alfa.getText().isEmpty())
-        {
             out.setText("Ingrese el alfabeto");
-        }
         else if (men.getText().isEmpty())
-        {
             out.setText("Ingrese el mensaje a cifrar");
-        }
         else if (clave.getText().isEmpty())
-        {
             out.setText("Ingrese la clave para cifrar");
-        }
         else
         {
             c.setAlfa(alfa.getText());
@@ -56,17 +50,11 @@ public class Controller implements Initializable
     void metodoDecifrar(ActionEvent event)
     {
         if (alfa.getText().isEmpty())
-        {
             out.setText("Ingrese el alfabeto");
-        }
         else if (men.getText().isEmpty())
-        {
             out.setText("Ingrese el mensaje a cifrar");
-        }
         else if (clave.getText().isEmpty())
-        {
             out.setText("Ingrese la clave para cifrar");
-        }
         else
         {
             c.setAlfa(alfa.getText());
@@ -84,35 +72,26 @@ public class Controller implements Initializable
     }
 
     @Override
-    public
-    void initialize(URL url, ResourceBundle rb)
+    public void initialize(URL url, ResourceBundle rb)
     {
         c = new Cesar();
         men.setOnKeyTyped(e ->
         {
-            String alfaAux=alfa.getText()+" ";
+            String alfaAux = alfa.getText() + " ";
             if (!alfaAux.contains(e.getCharacter()))
-            {
                 e.consume();
-            }
         });
         alfa.setOnKeyTyped(e ->
         {
             if (e.getCharacter().equals(" "))
-            {
                 e.consume();
-            }
         });
         clave.setOnKeyTyped(e ->
         {
             if (!"1234567890".contains(e.getCharacter()))
-            {
                 e.consume();
-            }
             if (clave.getText().length() > 8)
-            {
                 e.consume();
-            }
         });
     }
 

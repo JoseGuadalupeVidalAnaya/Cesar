@@ -6,7 +6,6 @@
 package pp;
 
 /**
- *
  * @author jose
  */
 public class Cesar
@@ -32,13 +31,9 @@ public class Cesar
     {
         clave = c;
         while (clave >= alfa.length())
-        {
             clave = clave - alfa.length();
-        }
         while (clave < 0)
-        {
             clave = alfa.length() + clave;
-        }
     }
 
     void setMensaje(String c)
@@ -52,7 +47,7 @@ public class Cesar
         for (int i = 0; i < mensaje.length(); i++)
         {
             c = c + cambiar(mensaje.charAt(i));
-            if(cambiar(mensaje.charAt(i)).equals(""))
+            if (cambiar(mensaje.charAt(i)).equals(""))
                 return "No se pudo cifrar el mensaje";
         }
         return c;
@@ -60,38 +55,34 @@ public class Cesar
 
     String cambiar(char c)
     {
-        boolean encontrado=false;
+        boolean encontrado = false;
         if (c == ' ')
-        {
             return " ";
-        }
         int pos = 0;
         for (int i = 0; i < alfa.length(); i++)
         {
             if (c == alfa.charAt(i))
             {
                 pos = i;
-                encontrado=true;
+                encontrado = true;
             }
         }
-        if(!encontrado)
+        if (!encontrado)
             return "";
         pos = pos + clave;
-        if (pos > alfa.length()-1)
-        {
+        if (pos > alfa.length() - 1)
             pos = pos - alfa.length();
-        }
-        return ""+alfa.charAt(pos);
+        return "" + alfa.charAt(pos);
     }
 
     String decifrar()
     {
         String c = "";
-        clave=alfa.length()-clave;
+        clave = alfa.length() - clave;
         for (int i = 0; i < mensaje.length(); i++)
         {
             c = c + cambiar(mensaje.charAt(i));
-            if(cambiar(mensaje.charAt(i)).equals(""))
+            if (cambiar(mensaje.charAt(i)).equals(""))
                 return "No se pudo decifrar el mensaje";
         }
         return c;
