@@ -1,20 +1,16 @@
 package pp;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-/**
- * @author jose
- */
+import java.net.URL;
+import java.util.ResourceBundle;
+
 public class Controller implements Initializable
 {
-
     Cesar c;
     @FXML
     TextField alfa, men, clave, out;
